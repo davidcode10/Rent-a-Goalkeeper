@@ -12,26 +12,30 @@ const convocationSchema = new Schema({
     },
     category: {
         type: String,
-        enum: ['FUTSAL', 'FOOTBALL 7', 'FOOTBALL 11'],
-        required: [true, 'The category is required']
+        enum: ['FUTSAL', 'FOOTBALL 7', 'FOOTBALL 11']
     },
     matchDate: {
-        type: Date,
-        required: [true, 'The match date is required']
+        type: Date
     },
     matchDuration: {
         type: Number,
         required: [true, 'The match duration is required']
     },
     numberOfGks: {
-        type: Number
+        type: Number,
+        max: 2
     },
-    goalkeeper: {
-        type: mongoose.Types.ObjectId,
-        ref: 'Goalkeeper'
+    state: {
+        type: Boolean,
+        default: false
     },
+    goalkeeper: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        max: 2
+    }],
     owner: {
-        type: mongoose.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'User'
     }
 }, {

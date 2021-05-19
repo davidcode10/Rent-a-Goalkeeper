@@ -17,7 +17,15 @@ const userSchema = new Schema({
     },
     imageUrl: {
         type: String
-    }
+    },
+    state: {
+        type: Boolean,
+        default: false
+    },
+    favoritesGKs: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }]
 }, {
     timestamps: true
 })

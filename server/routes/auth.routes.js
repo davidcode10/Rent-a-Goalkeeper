@@ -61,4 +61,29 @@ router.post('/isloggedin', (req, res) => {
     req.session.currentUser ? res.json(req.session.currentUser) : res.status(401).json({ code: 401, message: 'Unauthorized' })
 })
 
+router.put('/editProfile/:user_id', (req, res) => {
+
+    const { username, password, imageUrl } = req.body
+    const user = req.session.currentUser._id
+
+    User
+        .findByIdAndUpdate(user, { username, password, imageUrl }, {new: true})
+        .then(response => res.json(response))
+        .catch(err => res.status(500).json({ code: 500, message: 'Error editing user data', err }))
+})
+
+router.put('/favoriteGks/:goalkeeper_id', (req, res) => {
+ 
+    const gkFav = req.params.goalkeeper_id
+    const { state } = req.body
+
+    User
+        .findByIdAndUpdate(req.session.currentUser._id, { state, $push: { favoritesGKs: gkFav } }, {new: true})
+        .then(response => {
+            console.log(response)
+            res.json(response)
+        })
+        .catch(err => res.status(500).json({ code: 500, message: 'Error following goalkeeper', err }))
+})
+
 module.exports = router
