@@ -21,6 +21,7 @@ class App extends Component {
     this.authService
       .isloggedin()
       .then(response => this.setState({ loggedUser: response.data }))
+      .catch(() => this.setState({ loggedUser: undefined }))
   }
 
   componentDidMount() {

@@ -9,7 +9,7 @@ class ConvocationsSended extends Component {
         return (
 
             <>
-                <SideBar />
+                <SideBar {...this.props} />
                 <p>This is the convocations sended to youuuu</p>
             </>
         )

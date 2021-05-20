@@ -1,5 +1,6 @@
 import { Component } from "react";
 import SideBar from './../../../layout/Profile-side-bar/SideBar'
+import ConvocationsList from "../../Convocations/Convocations List/Convocations-list";
 
 
 class MyConvocations extends Component {
@@ -9,8 +10,9 @@ class MyConvocations extends Component {
         return (
 
             <>
-                <SideBar />
+                <SideBar {...this.props} />
                 <p>I'm your convocations</p>
+                <ConvocationsList />
             </>
         )
     }

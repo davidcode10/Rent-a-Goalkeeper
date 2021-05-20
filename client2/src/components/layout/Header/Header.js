@@ -21,35 +21,34 @@ const Header = ({ loggedUser, storeUser }) => {
     return (
 
         <>
-
             <Navbar bg='#54595F' className="navbar justify-content-between">
-
                 <Container>
-
                     <Link to="/" className="nav-link">Rent a GoalKeeper</Link>
-                    <Link to='/convocations' className="nav-link">Convocations</Link>
+                    {
+                        loggedUser?.role === 'GOALKEEPER' ?
+                            <Link to='/convocations' className="nav-link">Convocations</Link>
+                            :
+                            <Link to='/createconvocations' className="nav-link">Create Convocations</Link>
 
+                    }
                     <Nav className="ml-auto">
-
-                        <>
-                            <Link to="/signup" className="mr-nav-link">Sign Up</Link>
-                            <Link to="/login" className="mr-nav-link">Log In</Link>
-                        </>
-                        <>
-                            <Link to="/profile" className="profile-btn">Profile</Link>
-                            <Button type='submit' onClick={() => logout()} className="nav-link">Log Out</Button>
-                        </>
-
-
+                        {
+                            !loggedUser ?
+                                <>
+                                    <Link to="/signup" className="mr-nav-link">Sign Up</Link>
+                                    <Link to="/login" className="mr-nav-link">Log In</Link>
+                                </>
+                                :
+                                <>
+                                    <Link to="/profile" className="profile-btn">Profile</Link>
+                                    <Button type='submit' onClick={() => logout()} className="nav-link">Log Out</Button>
+                                </>
+                        }
                         <span className="nav-link">| Hello, {loggedUser ? loggedUser.username : 'invitado'}</span>
                     </Nav>
-
                 </Container>
-
             </Navbar>
-
             <hr />
-
         </>
     )
 }

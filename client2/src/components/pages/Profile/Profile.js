@@ -11,7 +11,7 @@ class Profile extends Component {
             <>
                 <h1>I'm your profile</h1>
 
-                <SideBar />
+                <SideBar {...this.props} />
             </>
         )
     }

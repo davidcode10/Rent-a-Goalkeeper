@@ -3,19 +3,16 @@ import { Container } from 'react-bootstrap'
 import LoginForm from "./Login-form";
 
 
-class Login extends Component {
+const Login = ({ storeUser, history }) => {
 
-    render() {
+    return (
 
-        return (
-
-            <Container>
-                <h1>Login</h1>
-                <hr />
-                <LoginForm />
-            </Container>
-        )
-    }
+        <Container>
+            <h1>Login</h1>
+            <hr />
+            <LoginForm storeUser={storeUser} history={history} />
+        </Container>
+    )
 }
 
 export default Login

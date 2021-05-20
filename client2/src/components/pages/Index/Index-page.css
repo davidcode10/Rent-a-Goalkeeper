@@ -1,4 +1,9 @@
-
 .bg-image {
+    padding-bottom: 500px;
+    background-repeat: no-repeat;
+    text-align: center;
+}
 
+.text {
+    color: white
 }

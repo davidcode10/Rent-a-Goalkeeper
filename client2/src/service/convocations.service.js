@@ -4,13 +4,15 @@ class ConvocationsService {
 
     constructor() {
         this.app = axios.create({
-            baseURL: 'http://localhost:5000/api/convocations',
+            baseURL: `${process.env.REACT_APP_BASE_URL}/convocations`,
             withCredentials: true
         })
     }
 
     getAllConvocations = () => this.app.get('/getAllConvocations')
-    getOneConvocation = convocation_id => this.app.get(`/getOneConvocation/${convocation_id}`)
+    getOwnerConvocations = () => this.app.get('/getOwnerConvocation')
+    gkConvocations = () => this.app.get('/getGkConvocation')
+    editOneConvocation = (convocation_id, data) => this.app.put(`/editConvocation/${convocation_id}`, data)
     createConvocation = convocationDetails => this.app.post(`/newConvocation`, convocationDetails)
 }
 
