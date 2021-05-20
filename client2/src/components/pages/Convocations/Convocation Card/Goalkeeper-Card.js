@@ -11,7 +11,7 @@ class GkCard extends Component {
         return (
 
             <>
-                <Modal.Header closeButton>
+                <Modal.Header>
                     <Figure>
                         <Figure.Image
                             width={171}
@@ -25,12 +25,7 @@ class GkCard extends Component {
                     </Figure>
                 </Modal.Header>
                 <Modal.Body>
-                    <h4>{this.props.goalkeeper.username}</h4>
-                    <p>
-                        Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                        dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                        consectetur ac, vestibulum at eros.
-                    </p>
+                    <h4>Goalkeeper: {this.props.goalkeeper.username}</h4>
                 </Modal.Body>
             </>
         )

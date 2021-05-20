@@ -1,8 +1,8 @@
 import { Component } from "react";
 import { Form, Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import AuthService from './../../../service/auth.service'
 import UploadsService from './../../../service/uploads.service'
-
 
 class SignUpForm extends Component {
 
@@ -32,9 +32,7 @@ class SignUpForm extends Component {
             .then(response => {
                 this.props.history.push('/login')
             })
-            .catch(err => {
-                console.log('error!', err)
-            })
+            .catch(err => console.log('error!', err))
     }
 
     handleFileUpload(e) {
@@ -76,6 +74,7 @@ class SignUpForm extends Component {
                 <Button variant="dark" style={{ backgroundColor: '#6113b1', border: 'none' }} type="submit" disabled={this.state.isUploading}>
                     {this.state.isUploading ? 'Wait...' : 'Submit'}
                 </Button>
+                <small>Have an account already?<Link to='/login'>Log In</Link></small>
             </Form >
         )
     }

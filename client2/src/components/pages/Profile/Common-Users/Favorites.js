@@ -35,10 +35,7 @@ class Favorites extends Component {
 
         this.authService
             .getAllGksFollowed()
-            .then(response => {
-                console.log(response.data)
-                this.setState({ favoritesGks: response.data })
-            })
+            .then(response => this.setState({ favoritesGks: response.data.favoritesGKs }))
             .catch(err => console.log('error', err))
     }
 
@@ -53,6 +50,7 @@ class Favorites extends Component {
         return (
 
             <>
+                <hr />
                 <Modal
                     loggedUser={this.props.loggedUser}
                     show={this.state.showModal}
@@ -112,6 +110,9 @@ class Favorites extends Component {
                 <SideBar loggedUser={this.props.loggedUser} {...this.props} />
 
                 <Container>
+                    <hr />
+                    <h1>Your favorite(s) GK(s)</h1>
+                    <hr />
                     <Row>
                         {favoritesGks.map(elm => <FavoritesCard key={elm.id} {...elm} modal={(elm) => this.openModal(elm)} loggedUser={this.props.loggedUser} />)}
                     </Row>

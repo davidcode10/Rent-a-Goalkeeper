@@ -24,7 +24,10 @@ const Header = ({ loggedUser, storeUser }) => {
             <Navbar bg='#54595F' className="navbar justify-content-between">
                 <Container>
                     <Link to="/" className="nav-link">Rent a GoalKeeper</Link>
-                    {
+                    {!loggedUser ?
+                        <>
+                        </>
+                        :
                         loggedUser?.role === 'GOALKEEPER' ?
                             <Link to='/convocations' className="nav-link">Convocations</Link>
                             :
@@ -35,7 +38,7 @@ const Header = ({ loggedUser, storeUser }) => {
                         {
                             !loggedUser ?
                                 <>
-                                    <Link to="/signup" className="mr-nav-link">Sign Up</Link>
+                                    <Link to="/signup" className="mr-nav-link signup-btn">Sign Up</Link>
                                     <Link to="/login" className="mr-nav-link">Log In</Link>
                                 </>
                                 :
@@ -44,11 +47,10 @@ const Header = ({ loggedUser, storeUser }) => {
                                     <Button type='submit' onClick={() => logout()} className="nav-link">Log Out</Button>
                                 </>
                         }
-                        <span className="nav-link">| Hello, {loggedUser ? loggedUser.username : 'invitado'}</span>
+                        <span className="logged">| Hello, {loggedUser ? loggedUser.username : 'invitado'}</span>
                     </Nav>
                 </Container>
             </Navbar>
-            <hr />
         </>
     )
 }

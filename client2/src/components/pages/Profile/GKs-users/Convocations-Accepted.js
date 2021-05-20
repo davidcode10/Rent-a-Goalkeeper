@@ -35,7 +35,9 @@ class ConvocationsAccepted extends Component {
         return (
 
             <Container>
+                <hr />
                 <SideBar {...this.props} />
+                <hr />
                 <h1>Accepted Convocations</h1>
                 <hr />
                 <Row>

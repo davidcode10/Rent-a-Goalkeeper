@@ -7,36 +7,22 @@ import GkCard from '../Convocation Card/Goalkeeper-Card'
 
 class ConvocationsList extends Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
-            convocations: [],
             modalShow: false
         }
         this.convocationsService = new ConvocationService()
         this.authService = new AuthService()
     }
 
-    componentDidMount() {
-        this.loadOwnerConvocations()
-        this.followGk()
-    }
 
-    loadOwnerConvocations() {
-
-        this.convocationsService
-            .getOwnerConvocations()
-            .then(response => this.setState({ convocations: response.data }))
-            .catch(err => console.log('error', err))
-    }
 
     followGk(id) {
 
         this.authService
             .followGk(id, { state: true })
-            .then(response => {
-                console.log(response)
-            })
+            .then(response => this.props.fetchUser())
             .catch(err => console.log(err))
     }
 
@@ -46,14 +32,16 @@ class ConvocationsList extends Component {
 
     render() {
 
-        const { convocations } = this.state
+        const { convocations } = this.props
 
         return (
 
             <Container>
                 <>
                     <hr />
-                    <Modal
+                    <h1>Your Convocations</h1>
+                    <hr />
+                    {this.state.goalkeeper && <Modal
                         loggedUser={this.props.loggedUser}
                         style={{ flexDirection: 'column' }}
                         size="lg"
@@ -63,10 +51,12 @@ class ConvocationsList extends Component {
                     >
                         <GkCard goalkeeper={this.state.goalkeeper} />
                         <Modal.Footer>
-                            {/* {this.state.goalkeeper.some(elm => elm._id === this.state.goalkeeper._id) ? <Button>Following</Button> : <Button onClick={() => this.followGk(this.state.goalkeeper._id)}>Follow</Button>} */}
+                            {this.props.loggedUser?.favoritesGKs.some(elm => elm === this.state.goalkeeper._id) ? <Button>Following</Button> :
+                                <Button onClick={() => this.followGk(this.state.goalkeeper._id)}>Follow</Button>
+                            }
                             <Button onClick={() => this.setState({ modalShow: false })}>Close</Button>
                         </Modal.Footer>
-                    </Modal>
+                    </Modal>}
                     <Row>
                         {convocations.map(elm => <ConvocationCard key={elm._id} {...elm} showModal={(elm) => this.openModal(elm)} loggedUser={this.props.loggedUser} refreshConvocations={() => this.loadOwnerConvocations()} />)}
                     </Row>

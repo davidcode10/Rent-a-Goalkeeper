@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 
 body {
-    background-color: #54595F;
+    /* background-color: #54595F; */
+    background-color: black;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
 }

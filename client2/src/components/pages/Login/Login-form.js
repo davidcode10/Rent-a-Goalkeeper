@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { Form, Button } from 'react-bootstrap'
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 import AuthService from './../../../service/auth.service'
 
 
@@ -35,20 +35,23 @@ class LoginForm extends Component {
 
         return (
 
-            <Form onSubmit={e => this.handleSubmit(e)}>
-                <Form.Group controlId="username">
-                    <Form.Label>Username</Form.Label>
-                    <Form.Control type="text" value={this.state.username} onChange={e => this.handleInputChange(e)} placeholder="Enter username" name='username' />
-                </Form.Group>
+            <div>
+                <Form onSubmit={e => this.handleSubmit(e)}>
+                    <Form.Group controlId="username">
+                        <Form.Label>Username</Form.Label>
+                        <Form.Control type="text" value={this.state.username} onChange={e => this.handleInputChange(e)} placeholder="Enter username" name='username' />
+                    </Form.Group>
 
-                <Form.Group controlId="password">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" value={this.state.password} onChange={e => this.handleInputChange(e)} placeholder="Password" name='password' />
-                </Form.Group>
-                <Button variant="primary" style={{ backgroundColor: '#6113b1', border: 'none' }} type="submit">
-                    Login
+                    <Form.Group controlId="password">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control type="password" value={this.state.password} onChange={e => this.handleInputChange(e)} placeholder="Password" name='password' />
+                    </Form.Group>
+                    <Button variant="primary" style={{ backgroundColor: '#6113b1', border: 'none' }} type="submit">
+                        Login
                 </Button>
-            </Form>
+                    <small>Don't you have an account?<Link to='/signup'>Sign Up</Link></small>
+                </Form>
+            </div>
         )
     }
 }

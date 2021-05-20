@@ -5,22 +5,23 @@ const FavoritesCard = ({ imageUrl, username, modal }) => {
 
 
     return (
-        <Col md={3}>
-            <Card className='convocations-card' style={{ width: '18rem' }}>
-                <Card.Body>
-                    <Figure>
-                        <Figure.Image
-                            width={171}
-                            height={180}
-                            alt="171x180"
-                            src={imageUrl}
-                        />
-                    </Figure>
-                    <Card.Title>{username}</Card.Title>
-                    <Button onClick={() => modal()}>Send Convocation</Button>
-                </Card.Body>
-            </Card>
-        </Col>
+        <>
+            <Col md={3}>
+                <Card className='convocations-card' style={{ width: '18rem' }}>
+                    <Card.Body>
+                        <Figure>
+                            <Figure.Image
+                                width={171}
+                                height={180}
+                                alt="171x180"
+                                src={imageUrl}
+                            />
+                        </Figure>
+                        <Card.Title>{username}</Card.Title>
+                    </Card.Body>
+                </Card>
+            </Col>
+        </>
     )
 }
 

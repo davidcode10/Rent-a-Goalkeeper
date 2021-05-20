@@ -34,6 +34,8 @@ class AllConvocations extends Component {
             <Container>
                 <>
                     <hr />
+                    <h1>Convocations list</h1>
+                    <hr />
                     <Row>
                         {convocations.map(elm => <AllConvocationCard key={elm._id} {...elm} loggedUser={this.props.loggedUser} refreshConvocations={() => this.loadConvocations()} />)}
                     </Row>

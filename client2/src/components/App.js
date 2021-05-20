@@ -37,7 +37,7 @@ class App extends Component {
         <Header loggedUser={this.state.loggedUser} storeUser={user => this.storeUser(user)} />
 
         <main>
-          <Routes storeUser={user => this.storeUser(user)} loggedUser={this.state.loggedUser} />
+          <Routes fetchUser={this.fetchUser} storeUser={user => this.storeUser(user)} loggedUser={this.state.loggedUser} />
         </main>
 
       </>

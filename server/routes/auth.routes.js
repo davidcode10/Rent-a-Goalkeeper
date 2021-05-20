@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt')
 const bcryptSalt = 10
 
 const User = require('../models/user.model')
+const { findById } = require('../models/user.model')
 
 router.post('/signup', (req, res) => {
 
@@ -79,20 +80,20 @@ router.put('/favoriteGks/:goalkeeper_id', (req, res) => {
 
     User
         .findByIdAndUpdate(req.session.currentUser._id, { state, $push: { favoritesGKs: gkFav } }, { new: true })
-        .then(response => res.json(response))
+        .then(response => {
+            req.session.currentUser = response
+            res.json(response)
+        })
         .catch(err => res.status(500).json({ code: 500, message: 'Error following goalkeeper', err }))
 })
 
 router.get('/favoritesGks', (req, res) => {
 
     User
-        .find(req.session.currentUser._id.favoritesGKs)
+        .findById(req.session.currentUser._id)
         .populate('goalkeeper favoritesGKs')
-        .then(response => {
-            console.log(response)
-            res.json(response)
-        })
-        .catch(err => res.status(500).json({ code: 500, message: 'Error following goalkeeper', err }))
+        .then(response => res.json(response))
+        .catch(err => res.status(500).json({ code: 500, message: 'Error fetching goalkeeper', err }))
 })
 
 module.exports = router

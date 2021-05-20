@@ -9,8 +9,7 @@ class Profile extends Component {
         return (
 
             <>
-                <h1>I'm your profile</h1>
-
+                <hr />
                 <SideBar {...this.props} />
             </>
         )

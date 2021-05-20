@@ -2,8 +2,47 @@
     padding-bottom: 500px;
     background-repeat: no-repeat;
     text-align: center;
+    padding-top: 120px;
+    background-size: cover;
 }
 
 .text {
-    color: white
+    color: white;
+    padding-top: 100px;
+    padding-bottom: 140px
+}
+
+.start-btn {
+    margin-top: 2px;
+    text-decoration: none;
+    color: white;
+    padding: 10px 35px;
+    background-color: #6113b1;
+    border-radius: 50px;
+    line-height: 21px;
+    border-color: #6113b1;
+}
+
+.start-btn:hover {
+    background-color: #00eb01;
+    border-color: #00eb01;
+    transition: background-color 1s, border-color 1s, color 1s;
+}
+
+.ol-col-1 h1 {
+    color: white;
+    font-size: 50px;
+    font-weight: 800;
+}
+
+.ol-col h1 {
+    color: white;
+    font-size: 60px;
+    font-weight: 700;
+}
+
+.ol-col li {
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
 }

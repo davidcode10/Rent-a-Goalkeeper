@@ -1,3 +1,17 @@
 .block {
     display: block;
 }
+
+.profile-link {
+    color: white;
+    background-color: #00eb01;
+}
+
+.a {
+    color: black;
+    text-decoration: none;
+}
+
+h1 {
+    color: white;
+}

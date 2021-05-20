@@ -1,0 +1,19 @@
+.create-btn {
+    color: #fff;
+    background-color: #6113b1;
+    border-color: #6113b1;
+    font-weight: 700;
+    border-radius: 50px;
+    margin-top: 30px;
+}
+
+.create-btn:hover {
+    color: black;
+    border-color: #00eb01;
+    background-color: #00eb01;
+    transition: background-color 1s, border-color 1s, color 1s
+}
+
+.bg-img {
+    object-fit: cover;
+}
