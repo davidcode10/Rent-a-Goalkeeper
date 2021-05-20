@@ -9,16 +9,6 @@ const SideBar = ({ loggedUser }) => {
     return (
 
         <>
-
-            {/* <ListGroup variant="flush">
-                <ListGroup.Item><Link to='/profile/edit'>Profile settings</Link></ListGroup.Item>
-                
-                <ListGroup.Item><Link to='/profile/favorites'>Favorites Gks</Link></ListGroup.Item>
-                <ListGroup.Item><Link to='/profile/myconvocations'>My convocations</Link></ListGroup.Item>
-                
-                <ListGroup.Item><Link to='/profile/acceptedconvocations'>Accepted convocations</Link></ListGroup.Item>
-                <ListGroup.Item><Link to='/profile/convocationssended'>Convocations sended to you</Link></ListGroup.Item>
-            </ListGroup> */}
             <Nav className="col-md-12 block bg sidebar"
                 activeKey="/home"
                 onSelect={selectedKey => alert(`selected ${selectedKey}`)}
@@ -55,9 +45,6 @@ const SideBar = ({ loggedUser }) => {
                                     <Nav.Link className='profile-link'>
                                         <Link className='a' to='/profile/acceptedconvocations'>Accepted convocations</Link>
                                     </Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link className='profile-link'><Link className='a' to='/profile/convocationssended'>Convocations sended to you</Link></Nav.Link>
                                 </Nav.Item>
                             </>
                     }

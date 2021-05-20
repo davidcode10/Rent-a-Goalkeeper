@@ -10,7 +10,6 @@ class ConvocationsSended extends Component {
 
             <>
                 <SideBar {...this.props} />
-                <p>This is the convocations sended to youuuu</p>
             </>
         )
     }
